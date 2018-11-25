@@ -22,10 +22,10 @@ import kotlin.collections.ArrayList
 /**
  * Created by chintak on 28/9/17.
  */
-class CalenderView @JvmOverloads constructor(context: Context?, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : LinearLayout(context, attrs, defStyleAttr) {
+class CalenderView @JvmOverloads constructor(context: Context?, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
+    LinearLayout(context, attrs, defStyleAttr) {
 
     var MAX_EVENT = 3
-
     var eventClickListener: CalenderEventClickListener? = null
 
     companion object {
@@ -38,16 +38,23 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
 
     private var eventList: ArrayList<EventItem> = ArrayList()
     private var calender: Calendar = Calendar.getInstance()
-    private var layoutInflater: LayoutInflater = context?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+    private var layoutInflater: LayoutInflater =
+        context?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
 
     private var dayViewHeader: View = layoutInflater.inflate(R.layout.layout_day_header_view, this, false)
-    private var dayViewRow1: FrameLayout = layoutInflater.inflate(R.layout.layout_day_date_view, this, false) as FrameLayout
-    private var dayViewRow2: FrameLayout = layoutInflater.inflate(R.layout.layout_day_date_view, this, false) as FrameLayout
-    private var dayViewRow3: FrameLayout = layoutInflater.inflate(R.layout.layout_day_date_view, this, false) as FrameLayout
-    private var dayViewRow4: FrameLayout = layoutInflater.inflate(R.layout.layout_day_date_view, this, false) as FrameLayout
-    private var dayViewRow5: FrameLayout = layoutInflater.inflate(R.layout.layout_day_date_view, this, false) as FrameLayout
-    private var dayViewRow6: FrameLayout = layoutInflater.inflate(R.layout.layout_day_date_view, this, false) as FrameLayout
+    private var dayViewRow1: FrameLayout =
+        layoutInflater.inflate(R.layout.layout_day_date_view, this, false) as FrameLayout
+    private var dayViewRow2: FrameLayout =
+        layoutInflater.inflate(R.layout.layout_day_date_view, this, false) as FrameLayout
+    private var dayViewRow3: FrameLayout =
+        layoutInflater.inflate(R.layout.layout_day_date_view, this, false) as FrameLayout
+    private var dayViewRow4: FrameLayout =
+        layoutInflater.inflate(R.layout.layout_day_date_view, this, false) as FrameLayout
+    private var dayViewRow5: FrameLayout =
+        layoutInflater.inflate(R.layout.layout_day_date_view, this, false) as FrameLayout
+    private var dayViewRow6: FrameLayout =
+        layoutInflater.inflate(R.layout.layout_day_date_view, this, false) as FrameLayout
     private var monthTitle: TextView? = dayViewHeader.findViewById(R.id.txt_monthTitle) as TextView
     private var btn_next: ImageView? = dayViewHeader.findViewById(R.id.btn_next) as ImageView
     private var btn_previous: ImageView? = dayViewHeader.findViewById(R.id.btn_previous) as ImageView
@@ -116,7 +123,10 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
         var selectedCalender: Calendar = Calendar.getInstance()
         selectedCalender.set(calender.get(Calendar.YEAR), calender.get(Calendar.MONTH), calender.get(Calendar.DATE))
         selectedCalender.set(Calendar.DATE, 1)
-        selectedCalender.set(Calendar.HOUR, 0); selectedCalender.set(Calendar.MINUTE, 0); selectedCalender.set(Calendar.SECOND, 0)
+        selectedCalender.set(Calendar.HOUR, 0); selectedCalender.set(
+            Calendar.MINUTE,
+            0
+        ); selectedCalender.set(Calendar.SECOND, 0)
 
         calender.set(Calendar.DATE, 1)
 
@@ -230,16 +240,19 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
 
                                 if (isDateInBetween(startDate, minDate, maxDate)) {
 
-                                    val daysBetween = if (isSameDay(minDate, startDate)) 0 else getDaysBetween(minDate, startDate) + 1
+                                    val daysBetween =
+                                        if (isSameDay(minDate, startDate)) 0 else getDaysBetween(minDate, startDate) + 1
 
                                     val startMarginDays = (widthOfText * daysBetween) + EXTRA_MARGIN
                                     var endMarginDays = 0
 
                                     if (isDateInBetween(endDate, minDate, maxDate)) {
-                                        endMarginDays = (widthOfText * getDaysBetween(endDate, maxDate)) + EXTRA_MARGIN + widthOfText
+                                        endMarginDays = (widthOfText * getDaysBetween(endDate, maxDate)) +
+                                                EXTRA_MARGIN + widthOfText
                                     }
 
-                                    val params = LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+                                    val params =
+                                        LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
                                     params.setMargins(startMarginDays, 5, endMarginDays, 5)
                                     layout_tripEvents.addView(eventTrip, params)
 
@@ -247,18 +260,26 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
 
                                 } else if (isDateInBetween(endDate, minDate, maxDate)) {
                                     val startMarginDays = 0
-                                    val endMarginDays = (widthOfText * getDaysBetween(endDate, maxDate)) + EXTRA_MARGIN + widthOfText
+                                    val endMarginDays =
+                                        (widthOfText * getDaysBetween(endDate, maxDate)) + EXTRA_MARGIN + widthOfText
 
-                                    val params = LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+                                    val params =
+                                        LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
                                     params.setMargins(startMarginDays, 5, endMarginDays, 5)
                                     layout_tripEvents.addView(eventTrip, params)
                                     eventAddCount++
-                                } else if (isDateInBetween(minDate, startDate, maxDate) && isDateInBetween(maxDate, startDate, endDate)) {
+                                } else if (isDateInBetween(minDate, startDate, maxDate) && isDateInBetween(
+                                        maxDate,
+                                        startDate,
+                                        endDate
+                                    )
+                                ) {
 
                                     val startMarginDays = 0
                                     val endMarginDays = 0
 
-                                    val params = LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+                                    val params =
+                                        LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
                                     params.setMargins(startMarginDays, 5, endMarginDays, 5)
                                     layout_tripEvents.addView(eventTrip, params)
                                     eventAddCount++
@@ -331,16 +352,19 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
 
                                 if (isDateInBetween(startDate, minDate, maxDate)) {
 
-                                    val daysBetween = if (isSameDay(minDate, startDate)) 0 else getDaysBetween(minDate, startDate) + 1
+                                    val daysBetween =
+                                        if (isSameDay(minDate, startDate)) 0 else getDaysBetween(minDate, startDate) + 1
 
                                     val startMarginDays = (widthOfText * daysBetween) + EXTRA_MARGIN
                                     var endMarginDays = 0
 
                                     if (isDateInBetween(endDate, minDate, maxDate)) {
-                                        endMarginDays = (widthOfText * getDaysBetween(endDate, maxDate)) + EXTRA_MARGIN + widthOfText
+                                        endMarginDays = (widthOfText * getDaysBetween(endDate, maxDate)) +
+                                                EXTRA_MARGIN + widthOfText
                                     }
 
-                                    val params = LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+                                    val params =
+                                        LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
                                     params.setMargins(startMarginDays, 5, endMarginDays, 5)
                                     layout_tripEvents.addView(eventTrip, params)
 
@@ -348,18 +372,26 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
 
                                 } else if (isDateInBetween(endDate, minDate, maxDate)) {
                                     val startMarginDays = 0
-                                    val endMarginDays = (widthOfText * getDaysBetween(endDate, maxDate)) + EXTRA_MARGIN + widthOfText
+                                    val endMarginDays =
+                                        (widthOfText * getDaysBetween(endDate, maxDate)) + EXTRA_MARGIN + widthOfText
 
-                                    val params = LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+                                    val params =
+                                        LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
                                     params.setMargins(startMarginDays, 5, endMarginDays, 5)
                                     layout_tripEvents.addView(eventTrip, params)
                                     eventAddCount++
-                                } else if (isDateInBetween(minDate, startDate, maxDate) && isDateInBetween(maxDate, startDate, endDate)) {
+                                } else if (isDateInBetween(minDate, startDate, maxDate) && isDateInBetween(
+                                        maxDate,
+                                        startDate,
+                                        endDate
+                                    )
+                                ) {
 
                                     val startMarginDays = 0
                                     val endMarginDays = 0
 
-                                    val params = LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+                                    val params =
+                                        LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
                                     params.setMargins(startMarginDays, 5, endMarginDays, 5)
                                     layout_tripEvents.addView(eventTrip, params)
                                     eventAddCount++
@@ -430,16 +462,19 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
 
                                 if (isDateInBetween(startDate, minDate, maxDate)) {
 
-                                    val daysBetween = if (isSameDay(minDate, startDate)) 0 else getDaysBetween(minDate, startDate) + 1
+                                    val daysBetween =
+                                        if (isSameDay(minDate, startDate)) 0 else getDaysBetween(minDate, startDate) + 1
 
                                     val startMarginDays = (widthOfText * daysBetween) + EXTRA_MARGIN
                                     var endMarginDays = 0
 
                                     if (isDateInBetween(endDate, minDate, maxDate)) {
-                                        endMarginDays = (widthOfText * getDaysBetween(endDate, maxDate)) + EXTRA_MARGIN + widthOfText
+                                        endMarginDays = (widthOfText * getDaysBetween(endDate, maxDate)) +
+                                                EXTRA_MARGIN + widthOfText
                                     }
 
-                                    val params = LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+                                    val params =
+                                        LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
                                     params.setMargins(startMarginDays, 5, endMarginDays, 5)
                                     layout_tripEvents.addView(eventTrip, params)
 
@@ -447,18 +482,26 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
 
                                 } else if (isDateInBetween(endDate, minDate, maxDate)) {
                                     val startMarginDays = 0
-                                    val endMarginDays = (widthOfText * getDaysBetween(endDate, maxDate)) + EXTRA_MARGIN + widthOfText
+                                    val endMarginDays =
+                                        (widthOfText * getDaysBetween(endDate, maxDate)) + EXTRA_MARGIN + widthOfText
 
-                                    val params = LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+                                    val params =
+                                        LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
                                     params.setMargins(startMarginDays, 5, endMarginDays, 5)
                                     layout_tripEvents.addView(eventTrip, params)
                                     eventAddCount++
-                                } else if (isDateInBetween(minDate, startDate, maxDate) && isDateInBetween(maxDate, startDate, endDate)) {
+                                } else if (isDateInBetween(minDate, startDate, maxDate) && isDateInBetween(
+                                        maxDate,
+                                        startDate,
+                                        endDate
+                                    )
+                                ) {
 
                                     val startMarginDays = 0
                                     val endMarginDays = 0
 
-                                    val params = LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+                                    val params =
+                                        LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
                                     params.setMargins(startMarginDays, 5, endMarginDays, 5)
                                     layout_tripEvents.addView(eventTrip, params)
                                     eventAddCount++
@@ -528,16 +571,19 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
 
                                 if (isDateInBetween(startDate, minDate, maxDate)) {
 
-                                    val daysBetween = if (isSameDay(minDate, startDate)) 0 else getDaysBetween(minDate, startDate) + 1
+                                    val daysBetween =
+                                        if (isSameDay(minDate, startDate)) 0 else getDaysBetween(minDate, startDate) + 1
 
                                     val startMarginDays = (widthOfText * daysBetween) + EXTRA_MARGIN
                                     var endMarginDays = 0
 
                                     if (isDateInBetween(endDate, minDate, maxDate)) {
-                                        endMarginDays = (widthOfText * getDaysBetween(endDate, maxDate)) + EXTRA_MARGIN + widthOfText
+                                        endMarginDays = (widthOfText * getDaysBetween(endDate, maxDate)) +
+                                                EXTRA_MARGIN + widthOfText
                                     }
 
-                                    val params = LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+                                    val params =
+                                        LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
                                     params.setMargins(startMarginDays, 5, endMarginDays, 5)
                                     layout_tripEvents.addView(eventTrip, params)
 
@@ -545,18 +591,26 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
 
                                 } else if (isDateInBetween(endDate, minDate, maxDate)) {
                                     val startMarginDays = 0
-                                    val endMarginDays = (widthOfText * getDaysBetween(endDate, maxDate)) + EXTRA_MARGIN + widthOfText
+                                    val endMarginDays =
+                                        (widthOfText * getDaysBetween(endDate, maxDate)) + EXTRA_MARGIN + widthOfText
 
-                                    val params = LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+                                    val params =
+                                        LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
                                     params.setMargins(startMarginDays, 5, endMarginDays, 5)
                                     layout_tripEvents.addView(eventTrip, params)
                                     eventAddCount++
-                                } else if (isDateInBetween(minDate, startDate, maxDate) && isDateInBetween(maxDate, startDate, endDate)) {
+                                } else if (isDateInBetween(minDate, startDate, maxDate) && isDateInBetween(
+                                        maxDate,
+                                        startDate,
+                                        endDate
+                                    )
+                                ) {
 
                                     val startMarginDays = 0
                                     val endMarginDays = 0
 
-                                    val params = LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+                                    val params =
+                                        LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
                                     params.setMargins(startMarginDays, 5, endMarginDays, 5)
                                     layout_tripEvents.addView(eventTrip, params)
                                     eventAddCount++
@@ -626,16 +680,19 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
 
                                 if (isDateInBetween(startDate, minDate, maxDate)) {
 
-                                    val daysBetween = if (isSameDay(minDate, startDate)) 0 else getDaysBetween(minDate, startDate) + 1
+                                    val daysBetween =
+                                        if (isSameDay(minDate, startDate)) 0 else getDaysBetween(minDate, startDate) + 1
 
                                     val startMarginDays = (widthOfText * daysBetween) + EXTRA_MARGIN
                                     var endMarginDays = 0
 
                                     if (isDateInBetween(endDate, minDate, maxDate)) {
-                                        endMarginDays = (widthOfText * getDaysBetween(endDate, maxDate)) + EXTRA_MARGIN + widthOfText
+                                        endMarginDays = (widthOfText * getDaysBetween(endDate, maxDate)) +
+                                                EXTRA_MARGIN + widthOfText
                                     }
 
-                                    val params = LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+                                    val params =
+                                        LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
                                     params.setMargins(startMarginDays, 5, endMarginDays, 5)
                                     layout_tripEvents.addView(eventTrip, params)
 
@@ -643,18 +700,26 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
 
                                 } else if (isDateInBetween(endDate, minDate, maxDate)) {
                                     val startMarginDays = 0
-                                    val endMarginDays = (widthOfText * getDaysBetween(endDate, maxDate)) + EXTRA_MARGIN + widthOfText
+                                    val endMarginDays =
+                                        (widthOfText * getDaysBetween(endDate, maxDate)) + EXTRA_MARGIN + widthOfText
 
-                                    val params = LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+                                    val params =
+                                        LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
                                     params.setMargins(startMarginDays, 5, endMarginDays, 5)
                                     layout_tripEvents.addView(eventTrip, params)
                                     eventAddCount++
-                                } else if (isDateInBetween(minDate, startDate, maxDate) && isDateInBetween(maxDate, startDate, endDate)) {
+                                } else if (isDateInBetween(minDate, startDate, maxDate) && isDateInBetween(
+                                        maxDate,
+                                        startDate,
+                                        endDate
+                                    )
+                                ) {
 
                                     val startMarginDays = 0
                                     val endMarginDays = 0
 
-                                    val params = LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+                                    val params =
+                                        LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
                                     params.setMargins(startMarginDays, 5, endMarginDays, 5)
                                     layout_tripEvents.addView(eventTrip, params)
                                     eventAddCount++
@@ -724,16 +789,19 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
 
                                 if (isDateInBetween(startDate, minDate, maxDate)) {
 
-                                    val daysBetween = if (isSameDay(minDate, startDate)) 0 else getDaysBetween(minDate, startDate) + 1
+                                    val daysBetween =
+                                        if (isSameDay(minDate, startDate)) 0 else getDaysBetween(minDate, startDate) + 1
 
                                     val startMarginDays = (widthOfText * daysBetween) + EXTRA_MARGIN
                                     var endMarginDays = 0
 
                                     if (isDateInBetween(endDate, minDate, maxDate)) {
-                                        endMarginDays = (widthOfText * getDaysBetween(endDate, maxDate)) + EXTRA_MARGIN + widthOfText
+                                        endMarginDays = (widthOfText * getDaysBetween(endDate, maxDate)) +
+                                                EXTRA_MARGIN + widthOfText
                                     }
 
-                                    val params = LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+                                    val params =
+                                        LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
                                     params.setMargins(startMarginDays, 5, endMarginDays, 5)
                                     layout_tripEvents.addView(eventTrip, params)
 
@@ -741,18 +809,26 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
 
                                 } else if (isDateInBetween(endDate, minDate, maxDate)) {
                                     val startMarginDays = 0
-                                    val endMarginDays = (widthOfText * getDaysBetween(endDate, maxDate)) + EXTRA_MARGIN + widthOfText
+                                    val endMarginDays =
+                                        (widthOfText * getDaysBetween(endDate, maxDate)) + EXTRA_MARGIN + widthOfText
 
-                                    val params = LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+                                    val params =
+                                        LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
                                     params.setMargins(startMarginDays, 5, endMarginDays, 5)
                                     layout_tripEvents.addView(eventTrip, params)
                                     eventAddCount++
-                                } else if (isDateInBetween(minDate, startDate, maxDate) && isDateInBetween(maxDate, startDate, endDate)) {
+                                } else if (isDateInBetween(minDate, startDate, maxDate) && isDateInBetween(
+                                        maxDate,
+                                        startDate,
+                                        endDate
+                                    )
+                                ) {
 
                                     val startMarginDays = 0
                                     val endMarginDays = 0
 
-                                    val params = LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+                                    val params =
+                                        LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
                                     params.setMargins(startMarginDays, 5, endMarginDays, 5)
                                     layout_tripEvents.addView(eventTrip, params)
                                     eventAddCount++
@@ -838,7 +914,9 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
         val calender1 = Calendar.getInstance()
         val calender2 = Calendar.getInstance()
         calender1.time = date1; calender2.time = date2
-        return calender1.get(Calendar.YEAR) == calender2.get(Calendar.YEAR) && calender1.get(Calendar.DAY_OF_YEAR) == calender2.get(Calendar.DAY_OF_YEAR)
+        return calender1.get(Calendar.YEAR) == calender2.get(Calendar.YEAR) && calender1.get(Calendar.DAY_OF_YEAR) == calender2.get(
+            Calendar.DAY_OF_YEAR
+        )
     }
 
     private fun getDaysBetween(startDate: Date, endDate: Date): Int {
@@ -854,7 +932,7 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
         this.eventClickListener = eventClickListener
     }
 
-    fun setMaxEventToShowPerWeek(maxEventCount: Int){
+    fun setMaxEventToShowPerWeek(maxEventCount: Int) {
         this.MAX_EVENT = maxEventCount
         updateEventView()
     }
