@@ -35,7 +35,7 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
         const val POST_TIME: Long = 100
     }
 
-    private var eventList: ArrayList<EventModal> = ArrayList()
+    private var eventList: ArrayList<EventItem> = ArrayList()
     private var calender: Calendar = Calendar.getInstance()
     private var layoutInflater: LayoutInflater =
         context?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -85,7 +85,7 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
         updateEventView(true)
     }
 
-    fun addEvent(eventItem: EventModal, clearOldData: Boolean = false) {
+    fun addEvent(eventItem: EventItem, clearOldData: Boolean = false) {
 
         if (clearOldData) eventList.clear()
 
@@ -102,7 +102,7 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
         updateEventView()
     }
 
-    fun addEventList(eventListItems: ArrayList<EventModal>, clearOldData: Boolean = false) {
+    fun addEventList(eventListItems: ArrayList<EventItem>, clearOldData: Boolean = false) {
         if (clearOldData) eventList.clear()
         (dayViewRow1.findViewById(R.id.layout_tripEvents) as FlowLayout).removeAllViews()
         (dayViewRow2.findViewById(R.id.layout_tripEvents) as FlowLayout).removeAllViews()
@@ -937,7 +937,7 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
     }
 
     interface CalenderEventClickListener {
-        fun onEventClick(eventItem: EventModal)
+        fun onEventClick(eventItem: EventItem)
     }
 
 }
