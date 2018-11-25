@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:minHeight="50dp"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:cardCornerRadius="2dp"
+            app:cardElevation="5dp">
+
+            <TextView
+                android:id="@+id/day1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/day_view_bg"
+                android:gravity="top|end"
+                android:padding="5dp"
+                android:text="1"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:cardCornerRadius="2dp"
+            app:cardElevation="5dp">
+
+            <TextView
+                android:id="@+id/day2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/day_view_bg"
+                android:gravity="top|end"
+                android:padding="5dp"
+                android:text="2"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:cardCornerRadius="2dp"
+            app:cardElevation="5dp">
+
+            <TextView
+                android:id="@+id/day3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/day_view_bg"
+                android:gravity="top|end"
+                android:padding="5dp"
+                android:text="3"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:cardCornerRadius="2dp"
+            app:cardElevation="5dp">
+
+            <TextView
+                android:id="@+id/day4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/day_view_bg"
+                android:gravity="top|end"
+                android:padding="5dp"
+                android:text="4"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:cardCornerRadius="2dp"
+            app:cardElevation="5dp">
+
+            <TextView
+                android:id="@+id/day5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/day_view_bg"
+                android:gravity="top|end"
+                android:padding="5dp"
+                android:text="5"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:cardCornerRadius="2dp"
+            app:cardElevation="5dp">
+
+            <TextView
+                android:id="@+id/day6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/day_view_bg"
+                android:gravity="top|end"
+                android:padding="5dp"
+                android:text="6"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:cardCornerRadius="2dp"
+            app:cardElevation="5dp">
+
+            <TextView
+                android:id="@+id/day7"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/day_view_bg"
+                android:gravity="top|end"
+                android:padding="5dp"
+                android:text="7"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+    <com.nex3z.flowlayout.FlowLayout
+        android:id="@+id/layout_tripEvents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="25dp"
+        android:animateLayoutChanges="true">
+
+    </com.nex3z.flowlayout.FlowLayout>
+
+</FrameLayout>
