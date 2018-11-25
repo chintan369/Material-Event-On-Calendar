@@ -1,5 +1,6 @@
 package com.chintanpatel.materialeventcalendar
 
+//import it.sephiroth.android.library.tooltip.Tooltip
 import android.content.Context
 import android.graphics.Color
 import android.support.v7.widget.CardView
@@ -10,9 +11,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.chitakpatel.materialeventcalendar.R
 import com.nex3z.flowlayout.FlowLayout
-//import it.sephiroth.android.library.tooltip.Tooltip
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -36,7 +35,7 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
         const val POST_TIME: Long = 100
     }
 
-    private var eventList: ArrayList<EventItem> = ArrayList()
+    private var eventList: ArrayList<EventModal> = ArrayList()
     private var calender: Calendar = Calendar.getInstance()
     private var layoutInflater: LayoutInflater =
         context?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -86,7 +85,7 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
         updateEventView(true)
     }
 
-    fun addEvent(eventItem: EventItem, clearOldData: Boolean = false) {
+    fun addEvent(eventItem: EventModal, clearOldData: Boolean = false) {
 
         if (clearOldData) eventList.clear()
 
@@ -103,7 +102,7 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
         updateEventView()
     }
 
-    fun addEventList(eventListItems: ArrayList<EventItem>, clearOldData: Boolean = false) {
+    fun addEventList(eventListItems: ArrayList<EventModal>, clearOldData: Boolean = false) {
         if (clearOldData) eventList.clear()
         (dayViewRow1.findViewById(R.id.layout_tripEvents) as FlowLayout).removeAllViews()
         (dayViewRow2.findViewById(R.id.layout_tripEvents) as FlowLayout).removeAllViews()
@@ -938,7 +937,7 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
     }
 
     interface CalenderEventClickListener {
-        fun onEventClick(eventItem: EventItem)
+        fun onEventClick(eventItem: EventModal)
     }
 
 }
