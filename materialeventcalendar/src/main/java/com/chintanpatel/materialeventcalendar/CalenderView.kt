@@ -111,8 +111,8 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
         (dayViewRow5.findViewById(R.id.layout_tripEvents) as FlowLayout).removeAllViews()
         (dayViewRow6.findViewById(R.id.layout_tripEvents) as FlowLayout).removeAllViews()
 
+        eventList.addAll(eventListItems)
         val sortedList = eventListItems.sortedWith(compareBy { it.getStartDateToSort() })
-
         eventList.clear()
         eventList.addAll(sortedList)
         updateEventView()
