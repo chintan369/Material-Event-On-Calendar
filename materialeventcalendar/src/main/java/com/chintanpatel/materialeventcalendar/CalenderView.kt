@@ -228,6 +228,10 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
                                 startDate.hours = 0; startDate.minutes = 0; startDate.seconds = 0
                                 endDate.hours = 0; endDate.minutes = 0; endDate.seconds = 0
 
+                                if (startDate > endDate) {
+                                    continue
+                                }
+
                                 val eventTrip = layoutInflater.inflate(R.layout.layout_event_line, null) as CardView
                                 val eventTitle = eventTrip.findViewById(R.id.txt_eventTitle) as TextView
                                 eventTrip.setCardBackgroundColor(Color.parseColor(eventList.get(j).color))
@@ -342,6 +346,10 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
                                 startDate.hours = 0; startDate.minutes = 0; startDate.seconds = 0
                                 endDate.hours = 0; endDate.minutes = 0; endDate.seconds = 0
 
+                                if (startDate > endDate) {
+                                    continue
+                                }
+
                                 val eventTrip = layoutInflater.inflate(R.layout.layout_event_line, null) as CardView
                                 val eventTitle = eventTrip.findViewById(R.id.txt_eventTitle) as TextView
                                 eventTrip.setCardBackgroundColor(Color.parseColor(eventList.get(j).color))
@@ -452,6 +460,10 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
                                 startDate.hours = 0; startDate.minutes = 0; startDate.seconds = 0
                                 endDate.hours = 0; endDate.minutes = 0; endDate.seconds = 0
 
+                                if (startDate > endDate) {
+                                    continue
+                                }
+
                                 val eventTrip = layoutInflater.inflate(R.layout.layout_event_line, null) as CardView
                                 val eventTitle = eventTrip.findViewById(R.id.txt_eventTitle) as TextView
                                 eventTrip.setCardBackgroundColor(Color.parseColor(eventList.get(j).color))
@@ -560,6 +572,10 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
 
                                 startDate.hours = 0; startDate.minutes = 0; startDate.seconds = 0
                                 endDate.hours = 0; endDate.minutes = 0; endDate.seconds = 0
+
+                                if (startDate > endDate) {
+                                    continue
+                                }
 
                                 val eventTrip = layoutInflater.inflate(R.layout.layout_event_line, null) as CardView
                                 val eventTitle = eventTrip.findViewById(R.id.txt_eventTitle) as TextView
@@ -670,6 +686,10 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
                                 startDate.hours = 0; startDate.minutes = 0; startDate.seconds = 0
                                 endDate.hours = 0; endDate.minutes = 0; endDate.seconds = 0
 
+                                if (startDate > endDate) {
+                                    continue
+                                }
+
                                 val eventTrip = layoutInflater.inflate(R.layout.layout_event_line, null) as CardView
                                 val eventTitle = eventTrip.findViewById(R.id.txt_eventTitle) as TextView
                                 eventTrip.setCardBackgroundColor(Color.parseColor(eventList.get(j).color))
@@ -778,6 +798,10 @@ class CalenderView @JvmOverloads constructor(context: Context?, attrs: Attribute
 
                                 startDate.hours = 0; startDate.minutes = 0; startDate.seconds = 0
                                 endDate.hours = 0; endDate.minutes = 0; endDate.seconds = 0
+
+                                if (startDate > endDate) {
+                                    continue
+                                }
 
                                 val eventTrip = layoutInflater.inflate(R.layout.layout_event_line, null) as CardView
                                 val eventTitle = eventTrip.findViewById(R.id.txt_eventTitle) as TextView
