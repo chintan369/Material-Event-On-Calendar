@@ -1,6 +1,7 @@
 # Material-Event-On-Calendar
 This is the unique library to show events on calendar with different colors and event names with startign date and end date
 
+[![](https://jitpack.io/v/chintan369/Material-Event-On-Calendar.svg)](https://jitpack.io/#chintan369/Material-Event-On-Calendar)
 
 ### Add it in your root build.gradle at the end of repositories:
 
@@ -17,7 +18,7 @@ allprojects {
 
 ```
 dependencies {
-	implementation 'com.github.chintan369:Material-Event-On-Calendar:1.0.7'
+	implementation 'com.github.chintan369:Material-Event-On-Calendar:latest-release'
 }
 ``` 
 
@@ -54,4 +55,6 @@ eventCalendar.addEventList(eventList)
  )
  
 ```
-In addEventList() / addEvent(), if you will pass **true** as second argumnet, it will clear previous events and add only you passed in first argument.
+In **addEventList() / addEvent()**, if you will pass **true** as second argumnet, it will clear previous events and add only you passed in first argument.
+
+You can also change the header text color using **setHeaderColor(color)**
