@@ -5,7 +5,7 @@ This is the unique library to show events on calendar with different colors and 
 
 ### Add it in your root build.gradle at the end of repositories:
 
-```
+```gradle
 allprojects {
  repositories {
   ...
@@ -16,7 +16,7 @@ allprojects {
 
 ### Step 2. Add the dependency
 
-```
+```gradle
 dependencies {
 	implementation 'com.github.chintan369:Material-Event-On-Calendar:latest-release'
 }
@@ -24,7 +24,7 @@ dependencies {
 
 and lastly put it in your layout.xml file as
 
-```
+```xml
 <com.chintanpatel.materialeventcalendar.CalenderView
             android:id="@+id/eventCalendar"
             android:layout_width="match_parent"
@@ -33,7 +33,7 @@ and lastly put it in your layout.xml file as
 
 and in your class/ kotlin file, you can use to add event as below.
 
-```
+```kotlin
 val eventList: ArrayList<EventItem> = arrayListOf()
 
 eventList.add(
